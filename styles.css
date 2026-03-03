@@ -131,7 +131,7 @@ body{ background: var(--bg); }
 /* ===== KARETNÍ BALÍČEK ===== */
 .deck{
   position: relative;
-  height: 380px;
+  height: 450px;
   border-radius: 18px;
   overflow: visible;
   background: transparent;
