@@ -1,589 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TD • Photo — Showcase</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TD-Photo</title>
 
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- TVŮJ CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body class="bg-true-dark text-light">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container nav-shell">
+      <a class="navbar-brand fw-bold" href="#">TD-Photo</a>
 
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-glass">
-    <div class="container">
-      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="#">
-        <span class="brand-dot"></span> TD • Photo
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#showcase">Ukázky</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">O mně</a></li>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-lg-3 gap-2">
           <li class="nav-item">
-            <a class="btn btn-sm btn-outline-light ms-lg-2" href="#contact">Kontakt</a>
+            <a class="nav-link" href="#about">O mně</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn contact-btn" href="#kontakt">Kontakt</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-bg"></div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FPHP.jpg?ver=0" class="hero-img" class="hero-img" alt="Ples Vracov 60">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-204.jpg?ver=0" class="hero-img" alt="Ples Vracov 204">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FPHP-26.jpg?ver=0" class="hero-img" alt="FPHP 26">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-60.jpg?ver=0" alt="FPHP">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FPHP-66.jpg?ver=0" class="hero-img" alt="FPHP 66">
+        </div>
+      </div>
 
-    <div class="container position-relative py-5">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-          <p class="text-uppercase letter text-secondary mb-2">TD showcase</p>
+      <!-- Overlay -->
+      <div class="hero-overlay"></div>
+      <div class="hero-center-shadow"></div>
 
-          <h1 class="display-5 fw-bold lh-1 mb-3">
-            Portréty • Sport • Akce
-          </h1>
+      <!-- Content -->
+      <div class="hero-content text-center">
+        <span class="hero-tag">Fotografie • Plesy • Kulturní akce  • Eventy</span>
+        <h1>Tomáš Dohodil Fotograf</h1>
+        <p>Zachycené momenty, emoce a atmosféra, ke kterým se budete rádi vracet.</p>
 
-          <h1 class="display-5 fw-bold lh-1 mb-3">
-            <span class="text-accent">Tomáš Dohodil</span>
-          </h1>
+        <div class="hero-buttons">
+          <a href="https://eu.zonerama.com/dohodiltomas/1524334" target="_blank" class="btn hero-btn">
+            Prohlédnout portfolio
+          </a>
+          <a href="#about" class="btn hero-btn-outline">
+            Více o mně
+          </a>
+        </div>
+      </div>
 
-          <p class="lead text-secondary mb-4">
-            Zachycuji chvíle, které stojí za to si pamatovat.
+      <!-- Indikátory -->
+      <div class="hero-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROČ FOTÍM -->
+  <section class="story-section section-space" id="intro">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <span class="section-tag">Proč fotím</span>
+          <h2 class="section-title mt-3">
+            Fotografie pro mě nejsou jen pár pixelů. Jsou to hlavně emoce.
+          </h2>
+
+          <p class="section-text mt-4">
+            Z každé akce si člověk většinou neodnese nic víc než vzpomínky, kocovinu a po případě tombolu.
+            A právě to nejhezčí — tedy vzpomínky, atmosféra a emoce — chci zachytit tak, aby zůstaly navždy.
           </p>
 
-          <div class="d-flex gap-2 flex-wrap">
-            <a class="btn btn-light btn-lg" href="#showcase">
-              Ukázky <i class="bi bi-arrow-right"></i>
+          <p class="section-text">
+            Proto nefotím jen „nějaké momentky“. Snažím se zachytit chvíle, které mají pro lidi skutečnou hodnotu,
+            aby si je mohli lidé připomínat i za několik let.
+          </p>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="image-card large-image-card">
+            <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_3381.jpg?ver=0" alt="Fotografie z akce">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATMOSFÉRA -->
+  <section class="feature-section section-space bg-soft">
+    <div class="bg-blob bg-blob-3"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-5 flex-lg-row-reverse">
+        <div class="col-lg-6 reveal">
+          <span class="section-tag">Atmosféra</span>
+          <h2 class="section-title mt-3">Každá akce má svůj vlastní příběh</h2>
+
+          <p class="section-text mt-4">
+            Ať už jde o ples, večerní zábavu nebo společenskou událost, vždycky se snažím zachytit nejen lidi,
+            ale hlavně celkový pocit z celé akce.
+          </p>
+
+          <p class="section-text">
+            Tak, aby fotky nepůsobily obyčejně, ale aby z nich byla cítit energie, světla, hudba a celý ten moment.
+          </p>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="image-card medium-image-card">
+            <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FPHP-59.jpg?ver=0" alt="Atmosféra akce">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENT -->
+  <section class="feature-section section-space">
+    <div class="bg-blob bg-blob-4"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <span class="section-tag">Moment</span>
+          <h2 class="section-title mt-3">Ty nejlepší momenty často trvají jen vteřinu</h2>
+
+          <p class="section-text mt-4">
+            Právě proto mám rád fotografii. Jeden pohled, jeden smích, jedno gesto — a je z toho vzpomínka,
+            ke které se člověk může vracet znovu a znovu.
+          </p>
+
+          <p class="section-text">
+            Věřím, že dobrá fotka nemusí být složitá. Stačí, když je opravdová.
+          </p>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="image-card medium-image-card">
+            <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/VVNM28.jpg?ver=0" alt="Moment z akce">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O MNĚ -->
+  <section class="about-section section-space" id="about">
+    <div class="bg-blob bg-blob-5"></div>
+    <div class="bg-blob bg-blob-6"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <span class="section-tag">O mně</span>
+          <h2 class="section-title mt-3">Fotím akce, které stojí za to si pamatovat</h2>
+
+         <p class="section-text mt-4">
+  Jsem fotograf z jižní Moravy a k focení mám vztah už od dětství. Postupem času se z toho stal koníček,
+  kterému se chci věnovat naplno a ve kterém se snažím pořád posouvat dál.
+</p>
+
+<p class="section-text">
+  Zaměřuji se především na plesy, kulturní a společenské akce, protože právě tam vznikají momenty,
+  které mají skutečnou atmosféru a pro lidi i reálnou hodnotu. Mým cílem není jen udělat „nějaké fotky“,
+  ale zachytit akci tak, aby si ji člověk mohl připomenout i po letech.
+</p>
+
+<p class="section-text">
+  Na focení mě baví hlavně to, že každá akce je jiná a pokaždé má svou vlastní energii.
+  A právě tu se snažím dostat i do výsledných fotek.
+</p>
+
+          <div class="about-buttons d-flex gap-3 flex-wrap mt-4">
+            <a href="https://eu.zonerama.com/dohodiltomas/1524334" target="_blank" class="btn dark-btn">
+              Portfolio
             </a>
-            <a class="btn btn-outline-light btn-lg" href="#about">O mně</a>
-            <a class="btn btn-outline-light btn-lg" href="#contact">Kontakt</a>
-          </div>
-
-          <div class="d-flex flex-wrap gap-2 mt-4">
-            <span class="pill"><i class="bi bi-stars"></i> Canon EOS R10</span>
-            <span class="pill"><i class="bi bi-aspect-ratio"></i> Edit</span>
-            <span class="pill"><i class="bi bi-layers"></i> Jižní Morava</span>
+            <a href="#kontakt" class="btn light-btn">
+              Kontakt
+            </a>
           </div>
         </div>
 
-        <div class="col-lg-5">
-          <div class="camera-free">
-            <img class="camera-img"
-              src="assets/camera.png"
-              alt="Fotoaparát"
-              loading="lazy"
-              draggable="false"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section id="showcase" class="py-5">
-    <div class="container">
-
-      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
-        <div>
-          <h2 class="fw-bold mb-1">Album</h2>
-          <p class="text-secondary mb-0"></p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <!-- PORTRÉTY -->
-        <div class="col-lg-4">
-          <div class="showcase-group">
-            <div class="showcase-head">
-              <h3 class="showcase-title">Portréty</h3>
-              <div class="showcase-controls">
-                <button class="btn btn-sm btn-outline-light deck-prev" data-deck="portraits" type="button">
-                  <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-light deck-next" data-deck="portraits" type="button">
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="deck" data-deck="portraits">
-
-              <!-- Portrét 1 -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-478.jpg?ver=0"
-                data-title="Portréty"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 18-150mm f/3.5-6.3"
-                data-iso="1600"
-                data-shutter="1/320"
-                data-aperture="f/6.3"
-                data-focal="122 mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-478.jpg?ver=0"
-                  alt="Portrét 1" draggable="false">
-              </button>
-
-              <!-- Portrét 2 (DOPLŇ SI DATA) -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_3509-2.jpg?ver=0"
-                data-title="Portréty"
-                data-camera="Canon EOS 7D"
-                data-lens="TAMRON SP 17-50mm F/2.8"
-                data-iso="200"
-                data-shutter="1/2000"
-                data-aperture="f/4"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_3509-2.jpg?ver=0"
-                  alt="Portrét 2" draggable="false">
-              </button>
-
-              <!-- Portrét 3 (DOPLŇ SI DATA) -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_4244.jpg?ver=0"
-                data-title="Portréty"
-                data-camera="Canon EOS 7D"
-                data-lens="TAMRON SP 17-50mm F/2.8"
-                data-iso="400"
-                data-shutter="1/1600"
-                data-aperture="f/2.8"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_4244.jpg?ver=0"
-                  alt="Portrét 3" draggable="false">
-              </button>
-
-            </div>
-
-            <div class="showcase-meta text-secondary small">3 ukázky</div>
-          </div>
-        </div>
-
-        <!-- SPORT -->
-        <div class="col-lg-4">
-          <div class="showcase-group">
-            <div class="showcase-head">
-              <h3 class="showcase-title">Sport</h3>
-              <div class="showcase-controls">
-                <button class="btn btn-sm btn-outline-light deck-prev" data-deck="sport" type="button">
-                  <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-light deck-next" data-deck="sport" type="button">
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="deck" data-deck="sport">
-
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-185.jpg?ver=0"
-                data-title="Sport"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 18-150mm f/3.5-6.3"
-                data-iso="10 000"
-                data-shutter="1/400"
-                data-aperture="F/6.3"
-                data-focal="79mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-185.jpg?ver=0"
-                  alt="Sport 1" draggable="false">
-              </button>
-              
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-275.jpg?ver=0"
-                data-title="Sport"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 18-150mm f/3.5-6.3"
-                data-iso="10 000"
-                data-shutter="1/320"
-                data-aperture="F/6.3"
-                data-focal="56mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-275.jpg?ver=0"
-                  alt="Sport 1-dalsi" draggable="false">
-              </button>
-
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_3076-2.jpg?ver=0"
-                data-title="Sport"
-                data-camera="Canon EOS 7D"
-                data-lens="TAMRON SP 17-50mm F/2.8"
-                data-iso="400"
-                data-shutter="1/6400"
-                data-aperture="f/2.8"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_3076-2.jpg?ver=0"
-                  alt="Sport 2" draggable="false">
-              </button>
-
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-481.jpg?ver=0"
-                data-title="Sport"
-                data-camera="Canon EOS 7D"
-                data-lens="SIGMA 70-200mm F/3.5-5.4"
-                data-iso="1/1600"
-                data-shutter="1/640"
-                data-aperture="f/4"
-                data-focal="86mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-481.jpg?ver=0"
-                  alt="Sport 3" draggable="false">
-              </button>
-
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-483.jpg?ver=0"
-                data-title="Sport"
-                data-camera="Canon EOS R10"
-                data-lens="SIGMA 70-200mm F/3.5-5.4"
-                data-iso="1600"
-                data-shutter="1/1600"
-                data-aperture="f/4"
-                data-focal="92mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-483.jpg?ver=0"
-                  alt="Sport 4" draggable="false">
-              </button>
-
-            </div>
-
-            <div class="showcase-meta text-secondary small">4 ukázky</div>
-          </div>
-        </div>
-
-        <!-- AKCE -->
-        <div class="col-lg-4">
-          <div class="showcase-group">
-            <div class="showcase-head">
-              <h3 class="showcase-title">Akce</h3>
-              <div class="showcase-controls">
-                <button class="btn btn-sm btn-outline-light deck-prev" data-deck="events" type="button">
-                  <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-light deck-next" data-deck="events" type="button">
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="deck" data-deck="events">
-<!-- tanecnice 1 -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0850.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF-S18-150mm F3.5-6.3 IS STM"
-                data-iso="5000"
-                data-shutter="1/160"
-                data-aperture="f/5"
-                data-focal="41mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0850.jpg?ver=0"
-                  alt="Akce 1" draggable="false">
-              </button>
-<!-- tanecnice 2 -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0849.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF-S18-150mm F3.5-6.3 IS STM"
-                data-iso="5000"
-                data-shutter="1/160"
-                data-aperture="f/6.3"
-                data-focal="64mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0849.jpg?ver=0"
-                  alt="Akce 2" draggable="false">
-              </button>
-<!-- decka na plese -->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0846.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF-S18-150mm F3.5-6.3 IS STM"
-                data-iso="10 000"
-                data-shutter="1/320"
-                data-aperture="f/6.3"
-                data-focal="70mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19877/19877706_16ba6271d6ebfe711e4be727e9bcf4cf/images/IMG_0846.jpg?ver=0"
-                  alt="Akce 3" draggable="false">
-              </button>
-              <!-- bubenik -->
-                 <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-72.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="3200"
-                data-shutter="1/320s"
-                data-aperture="f/2"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-72.jpg?ver=0"
-                  alt="Akce 6" draggable="false">
-              </button>
-              <!-- zpevacka-->
-                  <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-81.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="1000"
-                data-shutter="1/250s"
-                data-aperture="f/2"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-81.jpg?ver=0"
-                  alt="Akce 6" draggable="false">
-              </button>
-<!-- tanecnici-->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-118.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="4000"
-                data-shutter="1/320"
-                data-aperture="f/2.8"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-118.jpg?ver=0"
-                  alt="Akce 4" draggable="false">
-              </button>
-<!-- tancujicipar-->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-168.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="2000"
-                data-shutter="1/200"
-                data-aperture="f/2.2"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-168.jpg?ver=0"
-                  alt="Akce 5" draggable="false">
-              </button>
-              <!-- skupinalidi-->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-60.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="1600"
-                data-shutter="1/125s"
-                data-aperture="f/2.5"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-60.jpg?ver=0"
-                  alt="Akce 6" draggable="false">
-              </button>
-              
-                <!-- dalsipar-->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-157.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="4000"
-                data-shutter="1/250s"
-                data-aperture="f/2.8"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-157.jpg?ver=0"
-                  alt="Akce 6" draggable="false">
-              </button>
-
-                     <!-- randompanio-->
-              <button class="deck-card img-click" type="button"
-                data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-204.jpg?ver=0"
-                data-title="Akce"
-                data-camera="Canon EOS R10"
-                data-lens="Canon RF 50 mm F/1.8 STM"
-                data-iso="1600"
-                data-shutter="1/200s"
-                data-aperture="f/2.8"
-                data-focal="50mm"
-              >
-                <img class="deck-img" loading="lazy"
-                  src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Ples_Vracov-204.jpg?ver=0"
-                  alt="Akce 6" draggable="false">
-              </button>
-              
-            </div>
-
-            <div class="showcase-meta text-secondary small">5 ukázek</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-5 showcase-more">
-        <a
-          href="https://eu.zonerama.com/dohodiltomas/1524334"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-outline-light btn-lg px-4"
-        >
-          Více <i class="bi bi-arrow-right ms-1"></i>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-5 border-top border-secondary border-opacity-25">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5">
-          <button class="about-photo img-click" type="button"
-            data-full="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-484.jpg?ver=0"
-            data-title="O mně"
-          >
-            <img class="about-img" loading="lazy"
-              src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-484.jpg?ver=0"
-              alt="O mně" draggable="false">
-          </button>
-        </div>
-
-        <div class="col-lg-7">
-          <h2 class="fw-bold mb-2">O mně</h2>
-          <p class="text-secondary mb-3">
-            Vyrůstal jsem na jižní Moravě a právě tady jsem si našel cestu k fotografii.
-            Nejraději fotím portréty, sport a akce — tedy věci, kde hraje roli světlo, pohyb a moment.
-            Rád za vámi přijedu a společně vymyslíme focení, které bude dávat smysl a bude vás bavit.
-          </p>
-
-          <div class="d-flex flex-wrap gap-2">
-            <span class="pill"><i class="bi bi-person"></i> Portréty</span>
-            <span class="pill"><i class="bi bi-trophy"></i> Sport</span>
-            <span class="pill"><i class="bi bi-calendar-event"></i> Akce</span>
+        <div class="col-lg-6 reveal">
+          <div class="image-card about-main-image">
+            <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/FHH-484.jpg?ver=0" alt="Tomáš Dohodil">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-4 border-top border-secondary border-opacity-25">
-    <div class="container d-flex flex-wrap gap-2 align-items-center justify-content-between">
-      <div class="text-secondary small">© <span id="year"></span> TD • Photo</div>
-      <div class="text-secondary small">Tomáš Dohodil</div>
-    </div>
-  </footer>
+  <!-- KONTAKT -->
+  <section class="contact-section section-space" id="kontakt">
+    <div class="bg-blob bg-blob-7"></div>
+    <div class="bg-blob bg-blob-8"></div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-5 border-top border-secondary border-opacity-25">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
+      <div class="contact-box">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="section-tag">Kontakt</span>
+            <h2 class="section-title mt-3">Máš zájem o focení nebo se chceš jen na něco zeptat?</h2>
 
-          <div class="text-center mb-4">
-            <h2 class="fw-bold mb-2">Kontakt</h2>
-            <p class="text-secondary mb-0">
-              Pokud máš zájem o focení nebo spolupráci, klidně se ozvi.
+            <p class="section-text mt-4">
+              Pokud chceš nafotit ples, akci nebo cokoliv dalšího, klidně se mi ozvi.
+              Nejrychlejší je napsat mi přes Instagram, Facebook nebo e-mail.
             </p>
           </div>
 
-          <div class="contact-grid">
+          <div class="col-lg-6">
+            <div class="contact-links">
+              <a href="mailto:dohodil.tomas@gmail.com" class="contact-item">
+                <i class="bi bi-envelope"></i>
+                <span>dohodil.tomas@gmail.com</span>
+              </a>
 
-            <a href="mailto:dohodil.tomas@gmail.com" class="contact-card">
-              <div class="contact-icon"><i class="bi bi-envelope"></i></div>
-              <div>
-                <div class="contact-label">Email</div>
-                <div class="contact-value">dohodil.tomas@gmail.com</div>
-              </div>
-            </a>
+              <a href="tel:+420730699111" class="contact-item">
+                <i class="bi bi-telephone"></i>
+                <span>730 699 111</span>
+              </a>
 
-            <a href="https://instagram.com/dohodil.tomas" target="_blank" class="contact-card">
-              <div class="contact-icon"><i class="bi bi-instagram"></i></div>
-              <div>
-                <div class="contact-label">Instagram</div>
-                <div class="contact-value">@dohodil.tomas</div>
-              </div>
-            </a>
+              <a href="https://eu.zonerama.com/dohodiltomas/1524334" target="_blank" class="contact-item">
+                <i class="bi bi-images"></i>
+                <span>Zonerama Portfolio</span>
+              </a>
 
-            <a href="tel:+420730699111" class="contact-card">
-              <div class="contact-icon"><i class="bi bi-telephone"></i></div>
-              <div>
-                <div class="contact-label">Telefon</div>
-                <div class="contact-value">+420 730 699 111</div>
-              </div>
-            </a>
-
+              <a href="https://www.instagram.com/dohodil.tomas/" class="contact-item">
+                <i class="bi bi-instagram"></i>
+                <span>Instagram</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LIGHTBOX -->
-  <div class="modal fade" id="lightbox" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content modal-glass rounded-4 overflow-hidden">
-
-        <div class="modal-header border-0 d-flex align-items-center">
-          <h5 class="modal-title" id="lightboxTitle">Foto</h5>
-
-          <div class="ms-auto d-flex align-items-center gap-2">
-            <button type="button" class="btn btn-sm btn-outline-light" id="lbInfoBtn" aria-label="Informace o fotce">
-              <i class="bi bi-info-circle"></i>
-            </button>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Zavřít"></button>
-          </div>
-        </div>
-
-        <div class="modal-body pt-0 position-relative">
-
-          <!-- overlay šipky (desktop) -->
-          <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Předchozí">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-
-          <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Další">
-            <i class="bi bi-chevron-right"></i>
-          </button>
-
-          <!-- samotná fotka -->
-          <img id="lightboxImg" src="" alt="" class="rounded-3">
-
-          <!-- metadata panel (glass) -->
-          <div id="lbMeta" class="lb-meta" hidden>
-            <div class="lb-meta-title">Metadata</div>
-            <div id="lbMetaBody" class="lb-meta-body">
-              <div class="text-secondary small">Načítám…</div>
-            </div>
-          </div>
-
-        </div>
-
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-inner">
+        <p>© 2026 TD-Photo • Tomáš Dohodil Photography</p>
       </div>
     </div>
-  </div>
+  </footer>
+  
 
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/exifreader@4.26.2/dist/exif-reader.min.js"></script>
+
+  <!-- TVŮJ JS -->
   <script src="script.js"></script>
 </body>
 </html>
