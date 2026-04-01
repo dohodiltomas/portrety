@@ -1,460 +1,765 @@
-:root{
-  --bg: #05070a;
-  --accent: #9ef01a;
+/* =========================
+   GLOBAL
+========================= */
+html {
+  scroll-behavior: smooth;
 }
 
-*{ box-sizing: border-box; }
-
-body{ background: var(--bg); }
-.bg-true-dark{ background: var(--bg); }
-.text-accent{ color: var(--accent) !important; }
-.letter{ letter-spacing: .22em; }
-
-/* NAV */
-.nav-glass{
-  background: rgba(0,0,0,.45) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.brand-dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 20px rgba(158,240,26,.35);
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.05), transparent 35%),
+    radial-gradient(circle at top right, rgba(0,0,0,0.035), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(0,0,0,0.03), transparent 30%),
+    linear-gradient(to bottom, #f2f2f2, #f8f8f8, #fcfcfc);
 }
 
-/* HERO */
-.hero{
+a {
+  text-decoration: none;
+}
+
+section {
   position: relative;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.custom-navbar {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.nav-shell {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 999px;
+  padding: 13px 22px;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.08);
+  max-width: 1180px;
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  letter-spacing: -0.3px;
+  color: #111 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.nav-link {
+  color: #444 !important;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #000 !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 1.5px;
+  background: #111;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.contact-btn {
+  border: 1px solid #111 !important;
+  border-radius: 999px !important;
+  padding: 10px 18px !important;
+  background: #fff !important;
+  color: #111 !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 760px;
   overflow: hidden;
 }
-.hero-bg{
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(1200px 650px at 20% 10%, rgba(158,240,26,.10), transparent 60%),
-    radial-gradient(900px 500px at 85% 50%, rgba(255,255,255,.06), transparent 65%),
-    linear-gradient(to bottom, #0b0f14, var(--bg));
-  filter: saturate(1.05);
+
+#heroCarousel,
+.carousel-inner,
+.carousel-item {
+  height: 100%;
 }
 
-/* Pills */
-.pill{
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .45rem .75rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-}
-
-/* ===== FOŤÁK: absolutně bez boxu/rámečku ===== */
-.camera-free{
-  position: relative;
-  width: 100%;
-  height: 420px;
-  display: grid;
-  place-items: center;
-
-  /* žádné pozadí, žádný border, žádný radius */
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  overflow: visible;
-}
-
-/* jen měkké světlo BEZ hran (proto je to kruhové a rozmazané) */
-.camera-free::before{
-  content:"";
-  position:absolute;
-  width: 520px;
-  height: 520px;
-  border-radius: 999px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background:
-    radial-gradient(circle at 40% 35%, rgba(255,255,255,.12), transparent 55%),
-    radial-gradient(circle at 60% 60%, rgba(158,240,26,.14), transparent 60%);
-  filter: blur(20px);
-  opacity: .95;
-  pointer-events:none;
-}
-
-/* samotný obrázek */
-.camera-img{
+.hero-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transform: translateY(10px);
-  filter: drop-shadow(0 28px 60px rgba(0,0,0,.70));
-  user-select: none;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
 }
 
-/* SHOWCASE layout bez boxů */
-.showcase-group{ padding: 6px 2px; }
-.showcase-head{
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-.showcase-title{
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: .01em;
-}
-.showcase-controls{ display: flex; gap: 8px; }
-.showcase-meta{ margin-top: 10px; opacity: .85; }
-
-/* Buttons on dark */
-.btn-outline-light{ border-color: rgba(255,255,255,.35); }
-.btn-outline-light:hover{ border-color: rgba(255,255,255,.55); }
-
-/* Zonerama button */
-.showcase-more .btn{
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.showcase-more .btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.45);
-}
-
-
-/* ===== KARETNÍ BALÍČEK ===== */
-.deck{
-  position: relative;
-  height: 450px;
-  border-radius: 18px;
-  overflow: visible;
-  background: transparent;
-}
-
-/* prosvětlení za kartami (bez hran díky blur) */
-.deck::before{
-  content:"";
-  position:absolute;
-  inset:-26px;
-  border-radius: 30px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   background:
-    radial-gradient(520px 280px at 35% 35%, rgba(255,255,255,.14), transparent 62%),
-    radial-gradient(560px 320px at 70% 70%, rgba(158,240,26,.12), transparent 62%),
-    radial-gradient(760px 360px at 50% 55%, rgba(255,255,255,.06), transparent 70%);
-  filter: blur(14px);
-  opacity: 1;
-  pointer-events:none;
+    linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.50));
+  pointer-events: none;
+}
+
+.hero-center-shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.18), rgba(0,0,0,0.02) 42%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 90%;
+  max-width: 900px;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.96);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.8rem, 6vw, 5.3rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.hero-content p {
+  font-size: 1.08rem;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  color: rgba(255,255,255,0.95);
+}
+
+/* =========================
+   HERO BUTTONS
+========================= */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn,
+.hero-btn-outline {
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease;
+}
+
+.hero-btn {
+  background: #ffffff !important;
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.95) !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+}
+
+.hero-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #111 !important;
+  transform: translateY(-2px);
+}
+
+.hero-btn-outline {
+  background: rgba(255,255,255,0.18) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.70) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+}
+
+.hero-btn-outline:hover {
+  background: rgba(255,255,255,0.30) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   HERO INDICATORS
+========================= */
+.hero-indicators {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-indicators button {
+  width: 12px !important;
+  height: 12px !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.45) !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.35s ease !important;
+  box-shadow: none !important;
+}
+
+.hero-indicators button.active,
+.hero-indicators .active {
+  width: 30px !important;
+  background: #fff !important;
+  opacity: 1 !important;
+}
+
+/* =========================
+   CONTENT SECTIONS
+========================= */
+.section-space {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.035), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.03), transparent 28%),
+    linear-gradient(to bottom, #f6f6f6, #fcfcfc);
+}
+
+.bg-soft {
+  background:
+    radial-gradient(circle at top right, rgba(0,0,0,0.035), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(0,0,0,0.03), transparent 28%),
+    linear-gradient(to bottom, #f3f3f3, #fafafa);
+}
+
+.about-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.03), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.035), transparent 30%),
+    linear-gradient(to bottom, #f6f6f6, #fcfcfc);
+}
+
+.contact-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.03), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.04), transparent 30%),
+    linear-gradient(to bottom, #f3f3f3, #fafafa);
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.05);
+  color: #333;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  max-width: 700px;
+  color: #111;
+}
+
+.section-text {
+  font-size: 1.06rem;
+  line-height: 1.95;
+  color: #555;
+  max-width: 700px;
+}
+
+.image-card {
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.08);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.large-image-card {
+  height: 620px;
+}
+
+.medium-image-card {
+  height: 560px;
+}
+
+.about-main-image {
+  height: 620px;
+}
+
+/* =========================
+   BLOBS
+========================= */
+.bg-blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(95px);
+  opacity: 0.35;
+  pointer-events: none;
   z-index: 0;
 }
 
-/* karta = fotka + stín, bez rámečku */
-.deck-card{
-  position: absolute;
-  inset: 8px;
-  width: calc(100% - 16px);
-  height: calc(100% - 16px);
-  border: 0;
-  border-radius: 18px;
-  overflow: hidden;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  z-index: 1;
-
-  box-shadow:
-    0 18px 50px rgba(0,0,0,.62),
-    0 2px 0 rgba(255,255,255,.05) inset;
-
-  transition: transform .28s ease, opacity .28s ease, filter .28s ease;
+.bg-blob-1 {
+  width: 260px;
+  height: 260px;
+  background: rgba(0,0,0,0.05);
+  top: 80px;
+  left: -60px;
 }
 
-.deck-img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  background: transparent;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.32));
+.bg-blob-2 {
+  width: 320px;
+  height: 320px;
+  background: rgba(0,0,0,0.04);
+  bottom: 60px;
+  right: -80px;
 }
 
-.deck-card.is-top{
-  filter: saturate(1.08) contrast(1.05);
-}
-.deck-card.is-top:hover{
-  transform: translateY(-4px) rotate(0.2deg) scale(1.01);
-}
-
-/* ABOUT bez rámečku/glow */
-.about-photo{
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: zoom-in;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,.55);
-}
-.about-img{
-  width: 100%;
-  height: 420px;
-  object-fit: contain;
-  display: block;
-  background: rgba(0,0,0,.16);
-  user-select: none;
+.bg-blob-3 {
+  width: 280px;
+  height: 280px;
+  background: rgba(0,0,0,0.045);
+  top: 100px;
+  right: -60px;
 }
 
-/* Lightbox modal */
-.modal-glass{
-  background: rgba(12,16,22,.92);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(14px);
+.bg-blob-4 {
+  width: 260px;
+  height: 260px;
+  background: rgba(0,0,0,0.04);
+  bottom: 60px;
+  left: -50px;
 }
 
-/* click helper */
-.img-click{
-  border: 0;
-  background: transparent;
-  text-align: left;
-}
-.img-click:focus{ outline: none; }
-
-/* Responsive */
-@media (max-width: 992px){
-  .camera-free{ height: 340px; }
-  .deck{ height: 340px; }
-  .about-img{ height: 360px; }
-  .camera-free::before{ width: 440px; height: 440px; }
+.bg-blob-5 {
+  width: 280px;
+  height: 280px;
+  background: rgba(0,0,0,0.045);
+  top: 60px;
+  right: -70px;
 }
 
-@media (max-width: 576px){
-  .camera-free{ height: 280px; }
-  .deck{ height: 300px; }
-  .about-img{ height: 300px; }
-  .camera-free::before{ width: 360px; height: 360px; }
+.bg-blob-6 {
+  width: 240px;
+  height: 240px;
+  background: rgba(0,0,0,0.035);
+  bottom: 50px;
+  left: -40px;
 }
 
-/* ===== CLEAN CONTACT SECTION ===== */
-.contact-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.bg-blob-7 {
+  width: 280px;
+  height: 280px;
+  background: rgba(0,0,0,0.045);
+  top: 40px;
+  left: -60px;
+}
+
+.bg-blob-8 {
+  width: 260px;
+  height: 260px;
+  background: rgba(0,0,0,0.04);
+  bottom: 40px;
+  right: -60px;
+}
+
+.story-section .container,
+.story-section .row,
+.story-section .col-lg-6,
+.feature-section .container,
+.feature-section .row,
+.feature-section .col-lg-6,
+.about-section .container,
+.about-section .row,
+.about-section .col-lg-6,
+.contact-section .container,
+.contact-section .row,
+.contact-section .col-lg-6 {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   ABOUT BUTTONS
+========================= */
+.dark-btn,
+.light-btn {
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease;
+}
+
+.dark-btn {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid #111 !important;
+}
+
+.dark-btn:hover {
+  background: #000 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.light-btn {
+  background: rgba(255,255,255,0.75) !important;
+  color: #111 !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  backdrop-filter: blur(10px);
+}
+
+.light-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #111 !important;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-box {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 38px;
+  padding: 58px 42px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-.contact-card{
+.contact-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: rgba(255,255,255,.9);
-
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(8px);
-
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-
-.contact-card:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.18);
-  color: white;
-}
-
-.contact-icon{
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: rgba(158,240,26,.12);
-  color: var(--accent);
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.contact-label{
-  font-size: .9rem;
-  opacity: .75;
-}
-
-.contact-value{
-  font-weight: 600;
-}
-
-/* Responsive */
-@media (max-width: 992px){
-  .contact-grid{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===== Lightbox gallery navigation (profi) ===== */
-.lb-nav{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.22);
-  background: rgba(0,0,0,.35);
-  color: rgba(255,255,255,.92);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  z-index: 5;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .18s ease, transform .18s ease, background .18s ease, border-color .18s ease;
-}
-
-.lb-prev{ left: 14px; }
-.lb-next{ right: 14px; }
-
-/* zobrazení jen na desktop */
-@media (min-width: 992px){
-  .modal-body:hover .lb-nav{
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .lb-nav:hover{
-    background: rgba(0,0,0,.55);
-    border-color: rgba(255,255,255,.35);
-    transform: translateY(-50%) scale(1.04);
-  }
-
-  /* kdyby uživatel taboval: */
-  .lb-nav:focus-visible{
-    opacity: 1;
-    pointer-events: auto;
-    outline: 2px solid rgba(158,240,26,.65);
-    outline-offset: 3px;
-  }
-}
-
-/* disabled state */
-.lb-nav:disabled{
-  opacity: .25 !important;
-  pointer-events: none !important;
-}
-/* ===== Lightbox image: vždy se vejde do obrazovky ===== */
-#lightbox .modal-body{
-  padding: 0 1rem 1rem; /* trochu prostoru dole */
-}
-
-#lightboxImg{
-  width: 100%;
-  height: auto;
-  max-height: calc(100vh - 140px); /* odečte hlavičku + okraje */
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-/* ===== iOS glass lightbox ===== */
-
-/* tmavší backdrop (pozadí za modalem) */
-.modal-backdrop.show{
-  opacity: .78; /* default je často moc slabé nebo divné */
-}
-
-/* samotná "karta" modalu */
-#lightbox .modal-content{
-  background: rgba(18, 22, 28, .55) !important;  /* glass tint */
-  border: 1px solid rgba(255,255,255,.14) !important;
+  gap: 16px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.05);
   border-radius: 22px;
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.65),
-    0 1px 0 rgba(255,255,255,.10) inset;
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  padding: 18px 22px;
+  color: #111;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.03);
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0,0,0,0.10);
+  color: #111;
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  width: 24px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-section {
+  padding: 30px 0 45px;
+  background: #fafafa;
+}
+
+.footer-inner {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 25px;
+  text-align: center;
+}
+
+.footer-inner p {
+  margin: 0;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 991px) {
+  .custom-navbar {
+    top: 12px;
+  }
+
+  .nav-shell {
+    border-radius: 28px;
+    padding: 14px 18px;
+  }
+
+  .hero-section {
+    min-height: 720px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.3rem, 8vw, 4rem);
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .section-space {
+    padding: 90px 0;
+  }
+
+  .large-image-card,
+  .medium-image-card,
+  .about-main-image {
+    height: 430px;
+  }
+
+  .contact-box {
+    padding: 38px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-btn,
+  .hero-btn-outline,
+  .dark-btn,
+  .light-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-indicators {
+    bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .large-image-card,
+  .medium-image-card,
+  .about-main-image {
+    height: 360px;
+  }
+}
+
+/* =========================
+   STRONGER SECTION SEPARATION
+========================= */
+.section-space {
+  padding: 130px 0;
+  position: relative;
   overflow: hidden;
 }
 
-/* zruš bílý podklad v header/body */
-#lightbox .modal-header,
-#lightbox .modal-body{
-  background: transparent !important;
-}
-
-/* jemný oddělovač hlavičky */
-#lightbox .modal-header{
-  border-bottom: 1px solid rgba(255,255,255,.08) !important;
-}
-
-/* title víc iOS-like */
-#lightbox .modal-title{
-  font-weight: 700;
-  letter-spacing: .01em;
-}
-
-/* ať fotka sedí v okně (navazuje na minulý fix) */
-#lightboxImg{
-  width: 100%;
-  height: auto;
-  max-height: calc(100vh - 140px);
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-/* volitelné: jemná zrnitost jako iOS */
-#lightbox .modal-content::after{
+/* jemná horní oddělovací linka */
+.section-space::before {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 3px 3px;
-  opacity: .06;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 1240px);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,0,0,0.08),
+    rgba(0,0,0,0.12),
+    rgba(0,0,0,0.08),
+    transparent
+  );
+  z-index: 3;
 }
 
-/* ===== Lightbox metadata panel (glass) ===== */
-.lb-meta{
+/* jemný světelný/stínový přechod nahoře */
+.section-space::after {
+  content: "";
   position: absolute;
-  right: 14px;
-  top: 14px;
-  width: min(360px, calc(100% - 28px));
-  padding: 14px 14px 12px;
-  border-radius: 18px;
-  z-index: 6;
-
-  background: rgba(18, 22, 28, .55);
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 20px 60px rgba(0,0,0,.55);
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  top: -70px;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.16),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.lb-meta-title{
-  font-weight: 800;
-  letter-spacing: .01em;
-  margin-bottom: 10px;
+/* každá sekce bude víc "blok" */
+.story-section,
+.feature-section,
+.about-section,
+.contact-section {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
-.lb-meta-body{
-  display: grid;
-  gap: 8px;
+/* silnější rozdíly pozadí */
+.story-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.045), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.035), transparent 28%),
+    linear-gradient(to bottom, #f3f3f3, #fcfcfc);
 }
 
-.lb-meta-row{
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: .92rem;
+.bg-soft {
+  background:
+    radial-gradient(circle at top right, rgba(0,0,0,0.045), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(0,0,0,0.035), transparent 28%),
+    linear-gradient(to bottom, #efefef, #fafafa);
 }
 
-.lb-meta-key{ opacity: .75; }
-.lb-meta-val{ font-weight: 600; text-align: right; }
+.about-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.04), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.04), transparent 30%),
+    linear-gradient(to bottom, #f4f4f4, #fcfcfc);
+}
+
+.contact-section {
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,0.04), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.05), transparent 30%),
+    linear-gradient(to bottom, #eeeeee, #f8f8f8);
+}
+
+.image-card img {
+  transition: transform 0.5s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   SHINE EFFECT
+========================= */
+.hero-btn,
+.dark-btn,
+.contact-item,
+.image-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn::after,
+.dark-btn::after,
+.contact-item::after,
+.image-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.8s ease;
+  pointer-events: none;
+}
+
+.hero-btn:hover::after,
+.dark-btn:hover::after,
+.contact-item:hover::after,
+.image-card:hover::after {
+  left: 140%;
+}
