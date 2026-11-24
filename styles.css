@@ -333,59 +333,6 @@ section {
 }
 
 /* =========================
-   GALLERY
-========================= */
-
-.portrait-gallery {
-
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 24px;
-}
-
-.portrait-item {
-
-  height: auto;
-
-  border-radius: 28px;
-
-  overflow: hidden;
-
-  background: #fff;
-
-  box-shadow:
-    0 18px 50px rgba(0,0,0,0.08);
-
-  transition: all .35s ease;
-}
-
-.portrait-item:hover {
-
-  transform: translateY(-6px);
-
-  box-shadow:
-    0 26px 70px rgba(0,0,0,0.12);
-}
-
-.portrait-item img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform .55s ease;
-}
-
-.portrait-item:hover img {
-
-  transform: scale(1.04);
-}
-
-/* =========================
    BUTTONS
 ========================= */
 
@@ -777,15 +724,6 @@ section {
 
     height: auto;
 }
-  .portrait-gallery {
-
-    grid-template-columns: 1fr;
-  }
-
-  .portrait-item {
-
-    height: 350px;
-  }
 
   .price-card {
 
@@ -826,11 +764,6 @@ section {
     height: auto;
 }
 
-  .portrait-item {
-
-    height: auto;
-  }
-
   .price-value {
 
     font-size: 3rem;
@@ -846,11 +779,6 @@ section {
     height: auto;
 }
 
-  .portrait-item {
-
-    height: auto;
-  }
-
 }
 
 .signature-logo img {
@@ -861,3 +789,404 @@ section {
 
     display: block;
 }
+
+
+
+/* =========================
+   PORTRAIT CATEGORY CARDS
+========================= */
+
+.portrait-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.portrait-preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 28px;
+    background: #e8e8e8;
+    box-shadow: 0 18px 48px rgba(0,0,0,.09);
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1),
+                box-shadow .45s ease;
+}
+
+.portrait-preview > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.portrait-preview:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 28px 65px rgba(0,0,0,.14);
+}
+
+.portrait-preview:hover > img {
+    transform: scale(1.045);
+}
+
+.portrait-preview:focus-visible {
+    outline: 3px solid rgba(30,30,30,.65);
+    outline-offset: 5px;
+}
+
+.preview-glass {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 17px 18px 16px;
+    color: #171717;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 21px;
+    background: rgba(255,255,255,.66);
+    -webkit-backdrop-filter: blur(22px) saturate(165%);
+    backdrop-filter: blur(22px) saturate(165%);
+    box-shadow: 0 8px 30px rgba(0,0,0,.09),
+                inset 0 1px 0 rgba(255,255,255,.75);
+    transition: background .3s ease, transform .3s ease;
+}
+
+.portrait-preview:hover .preview-glass {
+    background: rgba(255,255,255,.78);
+    transform: translateY(-2px);
+}
+
+.preview-kicker {
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    opacity: .62;
+}
+
+.preview-title {
+    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+    line-height: 1.15;
+    font-weight: 750;
+    letter-spacing: -.045em;
+}
+
+.preview-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+    font-size: .78rem;
+    font-weight: 600;
+    opacity: .72;
+}
+
+/* =========================
+   LIQUID GLASS LIGHTBOX
+========================= */
+
+.liquid-gallery {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+
+.liquid-gallery.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.liquid-gallery-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(235,237,241,.62);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    backdrop-filter: blur(24px) saturate(140%);
+}
+
+.liquid-gallery-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(1120px, 100%);
+    height: min(850px, calc(100dvh - 48px));
+    padding: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.88);
+    border-radius: 30px;
+    background: rgba(250,250,252,.78);
+    -webkit-backdrop-filter: blur(36px) saturate(160%);
+    backdrop-filter: blur(36px) saturate(160%);
+    box-shadow: 0 35px 100px rgba(20,25,35,.20),
+                inset 0 1px 0 rgba(255,255,255,.95);
+    transform: translateY(16px) scale(.985);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+.liquid-gallery.is-open .liquid-gallery-panel {
+    transform: translateY(0) scale(1);
+}
+
+.liquid-gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 2px 2px 18px;
+}
+
+.liquid-gallery-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: #777;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+.liquid-gallery-header h2 {
+    margin: 0;
+    color: #151515;
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 750;
+    letter-spacing: -.045em;
+}
+
+.liquid-close,
+.liquid-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    color: #222;
+    border: 1px solid rgba(255,255,255,.9);
+    background: rgba(255,255,255,.68);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 5px 18px rgba(0,0,0,.09),
+                inset 0 1px 0 rgba(255,255,255,.9);
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.liquid-close {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+.liquid-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    transform: translateY(-50%);
+}
+
+.liquid-prev { left: 18px; }
+.liquid-next { right: 18px; }
+
+.liquid-close:hover,
+.liquid-arrow:hover {
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 8px 24px rgba(0,0,0,.13);
+}
+
+.liquid-close:hover { transform: scale(1.05); }
+.liquid-prev:hover { transform: translateY(-50%) scale(1.06); }
+.liquid-next:hover { transform: translateY(-50%) scale(1.06); }
+
+.liquid-photo-stage {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 21px;
+    background: rgba(225,227,231,.48);
+    touch-action: pan-y;
+}
+
+.liquid-photo-stage img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    opacity: 1;
+    transition: opacity .18s ease;
+}
+
+.liquid-photo-stage img.is-changing {
+    opacity: .25;
+}
+
+.liquid-gallery-footer {
+    display: grid;
+    grid-template-columns: auto minmax(70px, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    padding: 17px 3px 1px;
+    color: #444;
+    font-size: .8rem;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+}
+
+.liquid-progress-track {
+    height: 3px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: rgba(0,0,0,.09);
+}
+
+.liquid-progress-track span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #222;
+    transition: width .3s ease;
+}
+
+.liquid-gallery-hint {
+    color: #858585;
+    font-size: .72rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+body.gallery-open {
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .portrait-preview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portrait-preview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+    }
+
+    .portrait-preview {
+        border-radius: 20px;
+    }
+
+    .preview-glass {
+        left: 7px;
+        right: 7px;
+        bottom: 7px;
+        gap: 4px;
+        padding: 11px 11px 10px;
+        border-radius: 15px;
+    }
+
+    .preview-kicker {
+        font-size: .49rem;
+    }
+
+    .preview-title {
+        font-size: clamp(.95rem, 4vw, 1.2rem);
+    }
+
+    .preview-action {
+        font-size: .64rem;
+    }
+
+    .liquid-gallery {
+        padding: 9px;
+    }
+
+    .liquid-gallery-panel {
+        height: calc(100dvh - 18px);
+        padding: 13px;
+        border-radius: 23px;
+    }
+
+    .liquid-gallery-header {
+        padding-bottom: 12px;
+    }
+
+    .liquid-gallery-eyebrow {
+        font-size: .54rem;
+    }
+
+    .liquid-close {
+        width: 40px;
+        height: 40px;
+    }
+
+    .liquid-photo-stage {
+        border-radius: 15px;
+    }
+
+    .liquid-arrow {
+        width: 39px;
+        height: 39px;
+        font-size: .95rem;
+    }
+
+    .liquid-prev { left: 9px; }
+    .liquid-next { right: 9px; }
+
+    .liquid-gallery-footer {
+        grid-template-columns: auto minmax(45px, 1fr);
+        gap: 12px;
+        padding-top: 13px;
+    }
+
+    .liquid-gallery-hint {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portrait-preview,
+    .portrait-preview > img,
+    .preview-glass,
+    .liquid-gallery,
+    .liquid-gallery-panel,
+    .liquid-photo-stage img {
+        transition: none !important;
+    }
+}
+
+.liquid-arrow[hidden] { display: none; }
