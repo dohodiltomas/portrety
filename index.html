@@ -154,8 +154,7 @@
     </section>
   
   <!-- UKÁZKY PRÁCE -->
-
-<section class="gallery-section section-space">
+<section class="gallery-section section-space" id="ukazky">
 
     <div class="container">
 
@@ -170,37 +169,105 @@
             </h2>
 
             <p class="section-text mx-auto mt-3" style="max-width:700px;">
-
-                Každé focení je jiné. Tohle je malá ukázka
-                portrétů, které vznikly během posledních focení.
-
+                Každé focení je jiné. Vyberte si galerii a prohlédněte si fotografie z jednotlivých focení.
             </p>
 
         </div>
 
-        <div class="portrait-gallery">
+        <div class="portrait-preview-grid">
 
-            <div class="portrait-item reveal">
-                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Hynek-5.jpg?ver=0" alt="Portrét">
-            </div>
+            <button class="portrait-preview reveal" type="button" data-gallery="hynek"
+                    aria-label="Otevřít galerii Hynek">
+                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Hynek-8.jpg?ver=0"
+                     alt="Portrétní focení – Hynek" loading="lazy">
+                <span class="preview-glass">
+                    <span class="preview-kicker">PORTRÉTNÍ FOCENÍ</span>
+                    <span class="preview-title">Hynek</span>
+                    <span class="preview-action">Prohlédnout galerii <i class="bi bi-arrow-up-right"></i></span>
+                </span>
+            </button>
 
-            <div class="portrait-item reveal">
-                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Untitled-2_3.jpg?ver=0" alt="Portrét">
-            </div>
+            <button class="portrait-preview reveal" type="button" data-gallery="foceni2"
+                    aria-label="Otevřít druhou galerii">
+                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_2939.jpg?ver=0"
+                     alt="Ukázka portrétní fotografie" loading="lazy">
+                <span class="preview-glass">
+                    <span class="preview-kicker">PORTRÉTNÍ FOCENÍ</span>
+                    <span class="preview-title">Amálka</span>
+                    <span class="preview-action">Prohlédnout galerii <i class="bi bi-arrow-up-right"></i></span>
+                </span>
+            </button>
 
-            <div class="portrait-item reveal">
-                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Untitled-16.jpg?ver=0" alt="Portrét">
-            </div>
+            <button class="portrait-preview reveal" type="button" data-gallery="foceni3"
+                    aria-label="Otevřít třetí galerii">
+                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/IMG_0347.jpg?ver=0"
+                     alt="Ukázka portrétní fotografie" loading="lazy">
+                <span class="preview-glass">
+                    <span class="preview-kicker">PORTRÉTNÍ FOCENÍ</span>
+                    <span class="preview-title">Sabča</span>
+                    <span class="preview-action">Prohlédnout galerii <i class="bi bi-arrow-up-right"></i></span>
+                </span>
+            </button>
 
-            <div class="portrait-item reveal">
-                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Untitled_4.jpg?ver=0" alt="Portrét">
-            </div>
+            <button class="portrait-preview reveal" type="button" data-gallery="foceni4"
+                    aria-label="Otevřít čtvrtou galerii">
+                <img src="https://img43.rajce.idnes.cz/d4302/19/19864/19864657_681ea3faf3f983f24a2ae4b5e2a65928/images/Untitled-16.jpg?ver=0"
+                     alt="Ukázka portrétní fotografie" loading="lazy">
+                <span class="preview-glass">
+                    <span class="preview-kicker">PORTRÉTNÍ FOCENÍ</span>
+                    <span class="preview-title">Anička</span>
+                    <span class="preview-action">Prohlédnout galerii <i class="bi bi-arrow-up-right"></i></span>
+                </span>
+            </button>
 
         </div>
 
     </div>
-
 </section>
+
+<!-- LIQUID GLASS LIGHTBOX -->
+<div class="liquid-gallery" id="liquidGallery" aria-hidden="true">
+    <div class="liquid-gallery-backdrop" data-gallery-close></div>
+
+    <div class="liquid-gallery-panel" role="dialog" aria-modal="true"
+         aria-labelledby="liquidGalleryTitle" tabindex="-1">
+
+        <div class="liquid-gallery-header">
+            <div>
+                <span class="liquid-gallery-eyebrow">TD-PHOTO · PORTRÉTNÍ FOTOGRAFIE</span>
+                <h2 id="liquidGalleryTitle">Galerie</h2>
+            </div>
+
+            <button class="liquid-close" id="liquidClose" type="button"
+                    aria-label="Zavřít galerii">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="liquid-photo-stage" id="liquidPhotoStage">
+            <button class="liquid-arrow liquid-prev" id="liquidPrev" type="button"
+                    aria-label="Předchozí fotografie">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <img id="liquidMainImage" src="" alt="Fotografie z galerie">
+
+            <button class="liquid-arrow liquid-next" id="liquidNext" type="button"
+                    aria-label="Další fotografie">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="liquid-gallery-footer">
+            <span id="liquidCounter">1 / 1</span>
+            <div class="liquid-progress-track">
+                <span id="liquidProgress"></span>
+            </div>
+            <span class="liquid-gallery-hint">Použijte šipky nebo přejeďte prstem</span>
+        </div>
+
+    </div>
+</div>
 
 <!-- INFO SEKCE -->
 
